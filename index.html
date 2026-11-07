@@ -1,18 +1,13 @@
 <!doctype html>
-<html lang="sv" data-design="1">
+<html lang="sv">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lycklig Tass – Hundfrisör i Göteborg</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@1&family=Playfair+Display:ital,wght@1,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@1&display=swap">
 <style>
-/* Designförslag 1–5: bara färg + kursivfont skiljer. Poppins överallt. */
 :root{--r:26px;--pill:999px;--fb:"Poppins",system-ui,sans-serif;--fi:"Instrument Serif",Georgia,serif}
-[data-design="1"]{--bg:#fbf6ef;--ink:#231c16;--muted:#6f6358;--line:#e8dfd3;--card:#fff;--acc:#e8732c;--soft:#fbe6d6}
-[data-design="2"]{--bg:#f1f6f4;--ink:#13302b;--muted:#536b66;--line:#d6e4df;--card:#fff;--acc:#18907f;--soft:#d6efe9}
-[data-design="3"]{--bg:#fbf3f5;--ink:#341a29;--muted:#7d5b6c;--line:#efdbe2;--card:#fff;--acc:#c9406f;--soft:#f8dbe5}
-[data-design="4"]{--bg:#15171b;--ink:#f3eee6;--muted:#a39d93;--line:#2c2f36;--card:#1e2126;--acc:#e7b946;--soft:#2f2a1c;--fi:"Playfair Display",Georgia,serif}
-[data-design="5"]{--bg:#f3f3fb;--ink:#1b1d3f;--muted:#5b5e86;--line:#dcdcef;--card:#fff;--acc:#4f52e0;--soft:#e1e2fb}
+:root{--bg:#fbf6ef;--ink:#231c16;--muted:#6f6358;--line:#e8dfd3;--card:#fff;--acc:#e8732c;--soft:#fbe6d6}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#111;color:var(--ink);font:400 16px/1.65 var(--fb)}
@@ -21,7 +16,6 @@ i.ser{font-family:var(--fi);font-style:italic;font-weight:400;letter-spacing:-.0
 a{color:inherit}
 .wrap{max-width:1140px;margin:0 auto;padding-inline:max(18px,4vw)}
 .btn{display:inline-flex;align-items:center;justify-content:center;padding:.9em 1.5em;border-radius:var(--pill);background:var(--acc);color:#fff;font:600 .95rem var(--fb);text-decoration:none;border:0;cursor:pointer;transition:filter .2s}
-[data-design="4"] .btn{color:#15171b}
 .btn:hover{filter:brightness(1.08)}
 .btn:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
 .btn.light{background:#fff;color:#1a1a1a}
@@ -138,9 +132,6 @@ footer b{margin-bottom:6px}
 footer span{color:var(--muted)}
 @media(max-width:700px){footer .wrap{grid-template-columns:1fr}}
 
-.picker{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#222;padding:7px 7px 7px 14px;border-radius:var(--pill);box-shadow:0 8px 30px rgba(0,0,0,.2);font:600 12px/1 var(--fb)}
-.picker button{width:30px;height:30px;border-radius:50%;border:2px solid #fff;cursor:pointer;font:600 12px var(--fb);color:#fff;box-shadow:0 0 0 2px transparent}
-.picker button.on{box-shadow:0 0 0 2px #222}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -153,11 +144,11 @@ footer span{color:var(--muted)}
 </div></div></nav>
 
 <header class="hero">
-  <video class="on" muted playsinline preload="auto" src="https://assets.mixkit.co/videos/45886/45886-720.mp4"></video>
-  <video muted playsinline preload="auto" src="https://assets.mixkit.co/videos/45890/45890-720.mp4"></video>
-  <video muted playsinline preload="auto" src="https://assets.mixkit.co/videos/3518/3518-720.mp4"></video>
+  <video class="on" muted playsinline preload="auto" src="https://assets.mixkit.co/videos/45885/45885-720.mp4"></video>
+  <video muted playsinline preload="auto" src="https://assets.mixkit.co/videos/1664/1664-720.mp4"></video>
+  <video muted playsinline preload="auto" src="https://assets.mixkit.co/videos/15123/15123-720.mp4"></video>
   <div class="content wrap">
-    <h1 class="slogan">Låt din hund<br><i class="ser">leva.</i></h1>
+    <h1 class="slogan">Från bad<br>till <i class="ser">bus.</i></h1>
     <p>Hundfrisör i Majorna sedan 2014. Bad, klippning och handtrimning, en hund i taget.</p>
     <div class="cta"><a class="btn" href="#boka">Boka tid</a><a class="btn outline" href="#priser">Se priser</a></div>
   </div>
@@ -179,7 +170,7 @@ footer span{color:var(--muted)}
 </div></section>
 
 <section id="om-oss"><div class="wrap split">
-  <div class="media"><video autoplay muted loop playsinline src="https://assets.mixkit.co/videos/45871/45871-720.mp4"></video></div>
+  <div class="media"><video autoplay muted loop playsinline src="https://assets.mixkit.co/videos/45843/45843-720.mp4"></video></div>
   <div>
     <h2>Lugnt tempo, <i class="ser">ingen</i> stress</h2>
     <p class="sub">Vi bokar aldrig flera hundar samtidigt per frisör. Din hund väntar inte i bur, och efter klippningen får den springa av sig i vår inhägnade hundgård.</p>
@@ -255,8 +246,6 @@ footer span{color:var(--muted)}
   <div><b>Kontakt</b><span>031-12 34 56</span><span>hej@lyckligtass.se</span><span>@lyckligtass</span></div>
 </div></footer>
 
-<div class="picker" aria-label="Designförslag">Design</div>
-
 <script>
 // Hero: schampo → klipp → ängen
 const vids=[...document.querySelectorAll('.hero video')],bars=[...document.querySelectorAll('.progress b')],len=[6000,6000,9000];
@@ -314,10 +303,6 @@ form.addEventListener('submit',e=>{const name=document.getElementById('name');
 });
 update();
 
-// Designväljare
-const designs=["#e8732c","#18907f","#c9406f","#e7b946","#4f52e0"],picker=document.querySelector('.picker');
-designs.forEach((c,k)=>{const b=document.createElement('button');b.type='button';b.style.background=c;b.textContent=k+1;b.setAttribute('aria-label','Design '+(k+1));
-  if(!k)b.classList.add('on');b.onclick=()=>{document.documentElement.dataset.design=k+1;picker.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));};picker.appendChild(b);});
 </script>
 </body>
 </html>
