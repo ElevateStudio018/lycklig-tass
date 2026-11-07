@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="sv" data-design="1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lycklig Tass – Hundfrisör i Göteborg</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@1&family=Playfair+Display:ital,wght@1,600&display=swap">
+<style>
+/* Designförslag 1–5: bara färg + kursivfont skiljer. Poppins överallt. */
+:root{--r:26px;--pill:999px;--fb:"Poppins",system-ui,sans-serif;--fi:"Instrument Serif",Georgia,serif}
+[data-design="1"]{--bg:#fbf6ef;--ink:#231c16;--muted:#6f6358;--line:#e8dfd3;--card:#fff;--acc:#e8732c;--soft:#fbe6d6}
+[data-design="2"]{--bg:#f1f6f4;--ink:#13302b;--muted:#536b66;--line:#d6e4df;--card:#fff;--acc:#18907f;--soft:#d6efe9}
+[data-design="3"]{--bg:#fbf3f5;--ink:#341a29;--muted:#7d5b6c;--line:#efdbe2;--card:#fff;--acc:#c9406f;--soft:#f8dbe5}
+[data-design="4"]{--bg:#15171b;--ink:#f3eee6;--muted:#a39d93;--line:#2c2f36;--card:#1e2126;--acc:#e7b946;--soft:#2f2a1c;--fi:"Playfair Display",Georgia,serif}
+[data-design="5"]{--bg:#f3f3fb;--ink:#1b1d3f;--muted:#5b5e86;--line:#dcdcef;--card:#fff;--acc:#4f52e0;--soft:#e1e2fb}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#111;color:var(--ink);font:400 16px/1.65 var(--fb)}
+h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.025em;text-wrap:balance;font-weight:700}
+i.ser{font-family:var(--fi);font-style:italic;font-weight:400;letter-spacing:-.01em}
+a{color:inherit}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:max(18px,4vw)}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.9em 1.5em;border-radius:var(--pill);background:var(--acc);color:#fff;font:600 .95rem var(--fb);text-decoration:none;border:0;cursor:pointer;transition:filter .2s}
+[data-design="4"] .btn{color:#15171b}
+.btn:hover{filter:brightness(1.08)}
+.btn:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.btn.light{background:#fff;color:#1a1a1a}
+
+/* NAV */
+nav{position:fixed;inset:0 0 auto;z-index:30;padding-top:18px;transition:padding .3s}
+nav .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;color:#fff;padding:8px 8px 8px 20px;border-radius:var(--pill);transition:background .3s,color .3s,box-shadow .3s}
+nav.solid .bar{background:var(--card);color:var(--ink);box-shadow:0 6px 24px rgba(0,0,0,.1)}
+.logo{font-weight:700;font-size:1.15rem;text-decoration:none}
+.logo i.ser{font-size:1.3em}
+nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;font-size:.92rem;font-weight:500}
+nav ul a{text-decoration:none}
+@media(max-width:800px){nav ul{display:none}}
+
+/* HERO – sticky, full skärm. Innehållet scrollar upp över den. */
+.hero{position:sticky;top:0;height:100vh;height:100svh;min-height:540px;overflow:hidden;color:#fff;z-index:0}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s}
+.hero video.on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.55) 100%)}
+.hero .content{position:absolute;inset:auto 0 0;z-index:2;padding-bottom:clamp(48px,10vh,120px)}
+.slogan{font-size:clamp(3.2rem,10.5vw,9rem);font-weight:700;letter-spacing:-.045em;line-height:.95}
+.slogan i.ser{font-size:1.12em;padding-right:.04em}
+.hero p{max-width:36ch;font-size:clamp(1rem,1.5vw,1.2rem);margin:22px 0 30px;opacity:.92}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn.outline{background:transparent;border:1.5px solid rgba(255,255,255,.7);color:#fff}
+.progress{position:absolute;right:max(18px,4vw);bottom:clamp(48px,10vh,120px);z-index:2;display:flex;gap:6px}
+.progress span{width:44px;height:3px;border-radius:3px;background:rgba(255,255,255,.35);overflow:hidden}
+.progress span b{display:block;height:100%;width:0;background:#fff}
+@media(max-width:700px){.progress{display:none}}
+
+/* INNEHÅLL ovanpå heron */
+.page{position:relative;z-index:1;background:var(--bg);border-radius:var(--r) var(--r) 0 0;margin-top:-26px;transition:background .4s,color .4s}
+section{padding-block:clamp(72px,9vw,120px)}
+section+section{border-top:1px solid var(--line)}
+h2{font-size:clamp(2rem,4.4vw,3.4rem)}
+h2 i.ser{color:var(--acc)}
+.sub{color:var(--muted);max-width:54ch;margin:14px 0 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap}
+
+/* Priser */
+.prices{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+.price{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:8px}
+.price h3{font-size:1.2rem}
+.price p{margin:0;color:var(--muted);font-size:.93rem;flex:1}
+.price .kr{font-weight:600;font-size:1.05rem;font-variant-numeric:tabular-nums}
+.price .kr small{color:var(--muted);font-weight:400}
+
+/* Om oss */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr;gap:36px}}
+.media{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.media video{width:100%;height:100%;object-fit:cover;display:block}
+.team{margin-top:30px;display:grid;gap:0}
+.team div{display:flex;justify-content:space-between;gap:16px;padding:16px 0;border-top:1px solid var(--line);font-size:.95rem}
+.team div span{color:var(--muted);text-align:right}
+.facts{display:flex;gap:36px;margin-top:30px;flex-wrap:wrap}
+.facts b{display:block;font-size:2rem;font-weight:700;letter-spacing:-.03em}
+.facts span{color:var(--muted);font-size:.88rem}
+
+/* Omdömen */
+.quotes{margin-top:44px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;margin:0}
+.quote blockquote{margin:0 0 18px;font-size:1.05rem}
+.quote figcaption{font-size:.88rem;color:var(--muted)}
+
+/* BOKNING */
+.booking{display:grid;grid-template-columns:1fr 340px;gap:24px;margin-top:44px;align-items:start}
+@media(max-width:920px){.booking{grid-template-columns:1fr}}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,3vw,34px)}
+fieldset{border:0;margin:0 0 30px;padding:0;min-width:0}
+legend{font-weight:600;font-size:1.05rem;margin-bottom:14px;padding:0;display:flex;gap:10px;align-items:center}
+legend em{font-style:normal;font-size:.75rem;font-weight:600;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--soft);color:var(--acc)}
+.opts{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt span{display:block;height:100%;padding:14px 16px;border:1.5px solid var(--line);border-radius:18px;cursor:pointer;transition:border-color .15s,background .15s;font-size:.92rem}
+.opt span b{display:block;font-weight:600}
+.opt span small{color:var(--muted)}
+.opt input:checked+span{border-color:var(--acc);background:var(--soft)}
+.opt input:focus-visible+span{outline:3px solid var(--acc);outline-offset:2px}
+.opt input:disabled+span{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.days{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
+.days .opt span{text-align:center;padding:10px 4px}
+.days .opt span small{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em}
+.days .opt span b{font-size:1.15rem}
+@media(max-width:520px){.days{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.times{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:8px}
+.times .opt span{text-align:center;padding:10px;font-variant-numeric:tabular-nums}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:560px){.fields{grid-template-columns:1fr}}
+.fields .full{grid-column:1/-1}
+label.f{display:grid;gap:6px;font-size:.85rem;font-weight:500}
+label.f input,label.f textarea{font:inherit;font-size:.95rem;padding:13px 16px;border-radius:14px;border:1.5px solid var(--line);background:var(--bg);color:var(--ink);width:100%}
+label.f textarea{min-height:90px;resize:vertical}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--muted);margin-top:4px}
+.check input{margin-top:4px;accent-color:var(--acc)}
+.summary{position:sticky;top:96px}
+.summary h3{font-size:1.15rem;margin-bottom:16px}
+.summary dl{margin:0;display:grid;gap:0}
+.summary dl div{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.summary dt{color:var(--muted)}
+.summary dd{margin:0;font-weight:500;text-align:right}
+.total{display:flex;justify-content:space-between;align-items:baseline;margin:18px 0;font-variant-numeric:tabular-nums}
+.total b{font-size:1.7rem;letter-spacing:-.03em}
+.summary .btn{width:100%}
+.note{font-size:.8rem;color:var(--muted);margin:12px 0 0}
+.err{color:#c62828;font-size:.85rem;margin:10px 0 0;min-height:1.2em}
+.done{text-align:center;padding:30px 10px}
+.done h3{font-size:1.6rem;margin-bottom:10px}
+
+footer{background:var(--bg);position:relative;z-index:1;border-top:1px solid var(--line);transition:background .4s}
+footer .wrap{padding-block:56px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px;font-size:.92rem}
+footer .wrap > div{display:grid;gap:4px;align-content:start}
+footer b{margin-bottom:6px}
+footer span{color:var(--muted)}
+@media(max-width:700px){footer .wrap{grid-template-columns:1fr}}
+
+.picker{position:fixed;right:16px;bottom:16px;z-index:50;display:flex;align-items:center;gap:6px;background:#fff;color:#222;padding:7px 7px 7px 14px;border-radius:var(--pill);box-shadow:0 8px 30px rgba(0,0,0,.2);font:600 12px/1 var(--fb)}
+.picker button{width:30px;height:30px;border-radius:50%;border:2px solid #fff;cursor:pointer;font:600 12px var(--fb);color:#fff;box-shadow:0 0 0 2px transparent}
+.picker button.on{box-shadow:0 0 0 2px #222}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav id="nav"><div class="wrap"><div class="bar">
+  <a class="logo" href="#">Lycklig <i class="ser">Tass</i></a>
+  <ul><li><a href="#priser">Priser</a></li><li><a href="#om-oss">Om oss</a></li><li><a href="#omdomen">Omdömen</a></li><li><a href="#kontakt">Kontakt</a></li></ul>
+  <a class="btn" href="#boka">Boka tid</a>
+</div></div></nav>
+
+<header class="hero">
+  <video class="on" muted playsinline preload="auto" src="https://assets.mixkit.co/videos/45886/45886-720.mp4"></video>
+  <video muted playsinline preload="auto" src="https://assets.mixkit.co/videos/45890/45890-720.mp4"></video>
+  <video muted playsinline preload="auto" src="https://assets.mixkit.co/videos/3518/3518-720.mp4"></video>
+  <div class="content wrap">
+    <h1 class="slogan">Låt din hund<br><i class="ser">leva.</i></h1>
+    <p>Hundfrisör i Majorna sedan 2014. Bad, klippning och handtrimning, en hund i taget.</p>
+    <div class="cta"><a class="btn" href="#boka">Boka tid</a><a class="btn outline" href="#priser">Se priser</a></div>
+  </div>
+  <div class="progress" aria-hidden="true"><span><b></b></span><span><b></b></span><span><b></b></span></div>
+</header>
+
+<div class="page">
+<section id="priser"><div class="wrap">
+  <div class="head">
+    <div><h2>Priser och <i class="ser">behandlingar</i></h2>
+    <p class="sub">Kloklipp och öronrengöring ingår alltid. Priset beror på hundens storlek och pälsens skick.</p></div>
+  </div>
+  <div class="prices">
+    <div class="price"><h3>Bad och fön</h3><p>Schampo efter päls och hud, balsam, fön och genomborstning.</p><div class="kr">495–850 kr <small>· ca 60 min</small></div></div>
+    <div class="price"><h3>Klippning</h3><p>Rasklipp eller praktisk klippning. Bad och fön ingår.</p><div class="kr">795–1 450 kr <small>· ca 2 h</small></div></div>
+    <div class="price"><h3>Handtrimning</h3><p>För strävhåriga raser som terrier, schnauzer och strävhårig tax.</p><div class="kr">895–1 350 kr <small>· ca 2 h</small></div></div>
+    <div class="price"><h3>Valpbesök</h3><p>Upp till 6 månader. Kort bad och tid att vänja sig vid salongen.</p><div class="kr">295 kr <small>· ca 30 min</small></div></div>
+  </div>
+</div></section>
+
+<section id="om-oss"><div class="wrap split">
+  <div class="media"><video autoplay muted loop playsinline src="https://assets.mixkit.co/videos/45871/45871-720.mp4"></video></div>
+  <div>
+    <h2>Lugnt tempo, <i class="ser">ingen</i> stress</h2>
+    <p class="sub">Vi bokar aldrig flera hundar samtidigt per frisör. Din hund väntar inte i bur, och efter klippningen får den springa av sig i vår inhägnade hundgård.</p>
+    <div class="team">
+      <div><b>Elin Berg</b><span>Grundare · pudel och doodle</span></div>
+      <div><b>Marcus Lind</b><span>Handtrimning · terrier</span></div>
+      <div><b>Amira Haddad</b><span>Valpar och oroliga hundar</span></div>
+    </div>
+    <div class="facts">
+      <div><b>12</b><span>år i Majorna</span></div>
+      <div><b>4 800+</b><span>klippta hundar</span></div>
+      <div><b>4,9</b><span>snittbetyg på Google</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="omdomen"><div class="wrap">
+  <h2>Vad <i class="ser">hundägarna</i> säger</h2>
+  <div class="quotes">
+    <figure class="quote"><blockquote>Bamse brukar vägra bad. Här gick han in självmant och kom ut lättare än på flera år.</blockquote><figcaption>Anna, matte till Bamse (goldendoodle)</figcaption></figure>
+    <figure class="quote"><blockquote>Snyggaste klippningen Mira haft. Elin frågade om allt innan hon började.</blockquote><figcaption>Jonas, husse till Mira (dvärgpudel)</figcaption></figure>
+    <figure class="quote"><blockquote>Vår valp var nervös första gången. Amira tog det i hans takt, nu drar han mot dörren.</blockquote><figcaption>Sara, matte till Ozzy (shih tzu)</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="boka"><div class="wrap">
+  <h2>Boka en <i class="ser">tid</i></h2>
+  <p class="sub">Välj behandling, storlek och tid. Vi bekräftar bokningen via sms inom en arbetsdag.</p>
+
+  <form class="booking" id="form" novalidate>
+    <div class="panel">
+      <fieldset><legend><em>1</em>Behandling</legend>
+        <div class="opts" id="svc"></div></fieldset>
+      <fieldset><legend><em>2</em>Hundens storlek</legend>
+        <div class="opts" id="size"></div></fieldset>
+      <fieldset><legend><em>3</em>Dag</legend>
+        <div class="days" id="days"></div></fieldset>
+      <fieldset><legend><em>4</em>Tid</legend>
+        <div class="times" id="times"></div></fieldset>
+      <fieldset style="margin:0"><legend><em>5</em>Dina uppgifter</legend>
+        <div class="fields">
+          <label class="f">Ditt namn<input id="name" autocomplete="name" required></label>
+          <label class="f">Telefon<input id="phone" type="tel" autocomplete="tel" required placeholder="070-123 45 67"></label>
+          <label class="f">Hundens namn<input id="dog" required></label>
+          <label class="f">Ras<input id="breed" placeholder="T.ex. pudel, blandras"></label>
+          <label class="f full">Något vi bör veta?<textarea id="msg" placeholder="Tovor, allergier, ljudkänslig, önskad längd…"></textarea></label>
+          <label class="check full"><input type="checkbox" id="first">Första besöket hos oss (10 % rabatt)</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <aside class="panel summary" id="summary">
+      <h3>Din bokning</h3>
+      <dl>
+        <div><dt>Behandling</dt><dd id="s-svc">–</dd></div>
+        <div><dt>Storlek</dt><dd id="s-size">–</dd></div>
+        <div><dt>Dag</dt><dd id="s-day">–</dd></div>
+        <div><dt>Tid</dt><dd id="s-time">–</dd></div>
+        <div><dt>Längd</dt><dd id="s-len">–</dd></div>
+      </dl>
+      <div class="total"><span>Pris från</span><b id="s-total">0 kr</b></div>
+      <button class="btn" type="submit">Skicka bokning</button>
+      <p class="err" id="err" role="alert"></p>
+      <p class="note">Gratis avbokning fram till 24 h innan. Betala med kort eller Swish på plats.</p>
+    </aside>
+  </form>
+</div></section>
+</div>
+
+<footer id="kontakt"><div class="wrap">
+  <div><b>Lycklig <i class="ser">Tass</i></b><span>Tassgatan 4, 414 62 Göteborg</span><span>Spårvagn 3 och 9 till Stigbergstorget. Parkering på gården.</span></div>
+  <div><b>Öppettider</b><span>Tis–fre 08–17</span><span>Lör 09–14</span><span>Sön–mån stängt</span></div>
+  <div><b>Kontakt</b><span>031-12 34 56</span><span>hej@lyckligtass.se</span><span>@lyckligtass</span></div>
+</div></footer>
+
+<div class="picker" aria-label="Designförslag">Design</div>
+
+<script>
+// Hero: schampo → klipp → ängen
+const vids=[...document.querySelectorAll('.hero video')],bars=[...document.querySelectorAll('.progress b')],len=[6000,6000,9000];
+function show(n){vids.forEach((v,k)=>v.classList.toggle('on',k===n));
+  bars.forEach((b,k)=>{b.style.transition='none';b.style.width=k<n?'100%':'0';});
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{bars[n].style.transition=`width ${len[n]}ms linear`;bars[n].style.width='100%';}));
+  const v=vids[n];v.currentTime=0;v.play().catch(()=>{});setTimeout(()=>show((n+1)%3),len[n]);}
+show(0);
+
+// Nav blir solid efter heron
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('solid',scrollY>innerHeight*.75),{passive:true});
+
+// Bokning
+const SVC=[["Bad och fön",495,60],["Klippning",795,120],["Handtrimning",895,120],["Valpbesök",295,30]];
+const SIZE=[["Liten","under 10 kg",0],["Mellan","10–25 kg",200],["Stor","över 25 kg",400]];
+const state={svc:null,size:null,day:null,time:null};
+const kr=n=>n.toLocaleString('sv-SE')+' kr';
+function opt(name,val,html,extra=''){return `<label class="opt"><input type="radio" name="${name}" value="${val}" ${extra}><span>${html}</span></label>`}
+svc.innerHTML=SVC.map((s,i)=>opt('svc',i,`<b>${s[0]}</b><small>från ${kr(s[1])}</small>`)).join('');
+size.innerHTML=SIZE.map((s,i)=>opt('size',i,`<b>${s[0]}</b><small>${s[1]}${s[2]?' · +'+s[2]+' kr':''}</small>`)).join('');
+// nästa 7 öppetdagar (tis–lör)
+const dnames=['sön','mån','tis','ons','tor','fre','lör'];const dayList=[];let d=new Date();
+while(dayList.length<7){d.setDate(d.getDate()+1);if(d.getDay()>=2&&d.getDay()<=6)dayList.push(new Date(d));}
+days.innerHTML=dayList.map((x,i)=>opt('day',i,`<small>${dnames[x.getDay()]}</small><b>${x.getDate()}</b>`)).join('');
+function renderTimes(){
+  if(state.day===null){times.innerHTML='<p class="sub" style="margin:0">Välj en dag först.</p>';return;}
+  const dd=dayList[state.day],end=dd.getDay()===6?13:16,slots=[];
+  for(let h=dd.getDay()===6?9:8;h<=end;h++)slots.push(h);
+  times.innerHTML=slots.map(h=>{const busy=(h*7+dd.getDate()*3)%5===0; // låtsasbokade tider
+    return opt('time',h,`${String(h).padStart(2,'0')}:00`,busy?'disabled':'')}).join('');
+}
+renderTimes();
+function update(){
+  const s=SVC[state.svc],z=SIZE[state.size];
+  document.getElementById('s-svc').textContent=s?s[0]:'–';
+  document.getElementById('s-size').textContent=z?z[0]:'–';
+  document.getElementById('s-day').textContent=state.day!==null?dayList[state.day].toLocaleDateString('sv-SE',{weekday:'long',day:'numeric',month:'long'}):'–';
+  document.getElementById('s-time').textContent=state.time!==null?String(state.time).padStart(2,'0')+':00':'–';
+  document.getElementById('s-len').textContent=s?(s[2]>=60?'ca '+s[2]/60+' h':'ca '+s[2]+' min'):'–';
+  let t=(s?s[1]:0)+(z&&s?z[2]:0);if(first.checked)t=Math.round(t*.9);
+  document.getElementById('s-total').textContent=kr(t);
+}
+form.addEventListener('change',e=>{
+  const n=e.target.name;if(n in state){state[n]=+e.target.value;if(n==='day'){state.time=null;renderTimes();}}
+  err.textContent='';update();
+});
+form.addEventListener('submit',e=>{const name=document.getElementById('name');
+  e.preventDefault();
+  const miss=[];if(state.svc===null)miss.push('behandling');if(state.size===null)miss.push('storlek');
+  if(state.day===null)miss.push('dag');if(state.time===null)miss.push('tid');
+  if(!name.value.trim())miss.push('namn');if(phone.value.replace(/\D/g,'').length<8)miss.push('telefonnummer');if(!dog.value.trim())miss.push('hundens namn');
+  if(miss.length){err.textContent='Fyll i '+miss.join(', ')+'.';return;}
+  summary.innerHTML=`<div class="done"><h3>Tack, ${name.value.split(' ')[0]}!</h3><p class="sub" style="margin:0 auto">Vi har tagit emot bokningen för ${dog.value} ${document.getElementById('s-day').textContent} kl ${String(state.time).padStart(2,'0')}:00. Du får en bekräftelse via sms.</p></div>`;
+});
+update();
+
+// Designväljare
+const designs=["#e8732c","#18907f","#c9406f","#e7b946","#4f52e0"],picker=document.querySelector('.picker');
+designs.forEach((c,k)=>{const b=document.createElement('button');b.type='button';b.style.background=c;b.textContent=k+1;b.setAttribute('aria-label','Design '+(k+1));
+  if(!k)b.classList.add('on');b.onclick=()=>{document.documentElement.dataset.design=k+1;picker.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));};picker.appendChild(b);});
+</script>
+</body>
+</html>
